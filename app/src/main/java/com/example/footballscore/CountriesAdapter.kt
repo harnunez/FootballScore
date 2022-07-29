@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballscore.model.Country
-import com.example.footballscore.model.ResponseCountries
 
 class CountriesAdapter(private val listCountries:List<Country>) :
     RecyclerView.Adapter<CountriesViewHolder>() {
