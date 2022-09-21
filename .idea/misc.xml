@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/drawable-v31/soccerboll.xml" value="0.1" />
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/drawable/borderline_cards.xml" value="0.1975" />
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1975" />
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/layout/activity_countries.xml" value="0.14764492753623187" />
+        <entry key="..\:/Users/Harnefer/private-workspace/FootballScore/app/src/main/res/layout/activity_splash.xml" value="0.17907801418439717" />
         <entry key="..\:/Users/harnefer/AndroidStudioProjects/FootballScore/app/src/main/res/drawable/borderline_cards.xml" value="0.154" />
         <entry key="..\:/Users/harnefer/AndroidStudioProjects/FootballScore/app/src/main/res/drawable/ic_launcher_background.xml" value="0.228" />
         <entry key="..\:/Users/harnefer/AndroidStudioProjects/FootballScore/app/src/main/res/layout/activity_countries.xml" value="0.1" />

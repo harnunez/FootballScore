@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.footballscore">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,13 +16,17 @@
         android:theme="@style/Theme.FootballScore"
         tools:targetApi="31">
         <activity
-            android:name=".CountriesActivity"
-            android:exported="true">
+            android:name=".core.activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CountriesActivity"
+            >
         </activity>
     </application>
 
