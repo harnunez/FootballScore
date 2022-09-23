@@ -1,10 +1,9 @@
-package com.example.footballscore
+package com.example.footballscore.team
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.footballscore.databinding.ItemCountryBinding
-import com.example.footballscore.model.Country
-import com.squareup.picasso.Picasso
+import com.example.footballscore.team.model.Country
 
 class CountriesViewHolder(view:View) : RecyclerView.ViewHolder(view) {
 

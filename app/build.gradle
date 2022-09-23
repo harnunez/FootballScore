@@ -58,4 +58,16 @@ dependencies {
 
     //SplashScreen
     implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
+
+    //View Model - Live Data
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+
+    //ViewModel To activity
+    implementation "androidx.activity:activity-ktx:1.2.2"
+    //ViewModel to fragment
+    implementation "androidx.fragment:fragment-ktx:1.3.2"
+    // Lifecycles only (without ViewModel or LiveData)
+    //implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
 }

@@ -1,6 +1,6 @@
-package com.example.footballscore.services
+package com.example.footballscore.team.services
 
-import com.example.footballscore.model.ResponseCountries
+import com.example.footballscore.team.model.ResponseCountries
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers

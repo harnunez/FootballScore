@@ -1,9 +1,10 @@
-package com.example.footballscore
+package com.example.footballscore.team
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.footballscore.model.Country
+import com.example.footballscore.R
+import com.example.footballscore.team.model.Country
 
 class CountriesAdapter(private val listCountries:List<Country>) :
     RecyclerView.Adapter<CountriesViewHolder>() {

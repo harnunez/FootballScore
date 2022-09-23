@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CountriesActivity"
+            android:name=".team.ContainerActivity"
             >
         </activity>
     </application>

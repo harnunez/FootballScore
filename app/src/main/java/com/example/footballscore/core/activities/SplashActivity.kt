@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.footballscore.CountriesActivity
+import com.example.footballscore.team.ContainerActivity
 import com.example.footballscore.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun navigateToCountries(){
         binding.btnGameResults.setOnClickListener {
-            val intent = Intent(this, CountriesActivity::class.java)
+            val intent = Intent(this, ContainerActivity::class.java)
             startActivity(intent)
         }
     }
