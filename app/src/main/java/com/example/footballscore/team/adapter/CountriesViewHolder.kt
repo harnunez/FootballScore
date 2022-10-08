@@ -1,4 +1,4 @@
-package com.example.footballscore.team
+package com.example.footballscore.team.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +9,10 @@ class CountriesViewHolder(view:View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemCountryBinding.bind(view)
 
-    fun bind(country : Country){
+    fun bind(country : Country,
+             listener: CountriesAdapter.RecyclerCountriesClickListener?,
+             position:Int){
+
         binding.apply {
             val img = country.flag
 
@@ -17,6 +20,7 @@ class CountriesViewHolder(view:View) : RecyclerView.ViewHolder(view) {
             //Picasso.get().load(img).into(idFlagCountry) --- Solucionar el parseo de imagenes a JPG
 
             idNameCountry.text = country.name
+            itemView.setOnClickListener { listener?.goToLeague() }
 
         }
     }

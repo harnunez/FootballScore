@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.footballscore.R
+import com.example.footballscore.NavigationModule
 import com.example.footballscore.databinding.FragmentCountriesBinding
-import com.example.footballscore.team.CountriesAdapter
+import com.example.footballscore.team.adapter.CountriesAdapter
 import com.example.footballscore.team.FootballScoreViewModel
 import com.example.footballscore.team.model.Country
 
@@ -43,7 +42,13 @@ class CountriesFragment : Fragment() {
 
 
     private fun initRecycler(listCountry: List<Country>){
-        adapter = CountriesAdapter(listCountry)
+        adapter = CountriesAdapter(listCountry,
+            object : CountriesAdapter.RecyclerCountriesClickListener {
+                override fun goToLeague() {
+                    viewModel.setNavigate(NavigationModule.LEAGUE_SCREEN)
+                }
+            })
+
         binding.rvCountries.layoutManager = LinearLayoutManager(context)
         binding.rvCountries.adapter = adapter
     }

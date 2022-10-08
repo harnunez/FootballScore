@@ -1,4 +1,4 @@
-package com.example.footballscore.team
+package com.example.footballscore.team.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.footballscore.R
 import com.example.footballscore.team.model.Country
 
-class CountriesAdapter(private val listCountries:List<Country>) :
+class CountriesAdapter(private val listCountries:List<Country>,
+                       private var listener:RecyclerCountriesClickListener) :
     RecyclerView.Adapter<CountriesViewHolder>() {
+
+    interface RecyclerCountriesClickListener {
+        fun goToLeague()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -18,7 +23,8 @@ class CountriesAdapter(private val listCountries:List<Country>) :
 
     override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) {
         val itemCountry = listCountries[position]
-        holder.bind(itemCountry)
+        holder.bind(itemCountry, listener,position)
     }
+
 
 }

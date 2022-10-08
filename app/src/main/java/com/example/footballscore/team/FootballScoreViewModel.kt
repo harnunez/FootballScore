@@ -20,9 +20,11 @@ class FootballScoreViewModel : ViewModel(){
     private val _countries = MutableLiveData<List<Country>>()
     val countries : LiveData<List<Country>> = _countries
 
-    private val _navigation= MutableLiveData<NavigationModule>()
+    private val _navigation = MutableLiveData<NavigationModule>()
     val navigation : LiveData<NavigationModule> = _navigation
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading : LiveData<Boolean> = _isLoading
 
     fun init (){
         if(countries.value.isNullOrEmpty()){
@@ -31,6 +33,8 @@ class FootballScoreViewModel : ViewModel(){
     }
 
     fun searchCountries(){
+
+        _isLoading.postValue(true)
 
         CoroutineScope(Dispatchers.IO).launch {
             val call : Response<ResponseCountries> = FootballScoreServiceCall
@@ -41,13 +45,14 @@ class FootballScoreViewModel : ViewModel(){
 
             if(call.isSuccessful){
                 Log.d("InitView","Entre al succes")
+                _isLoading.postValue(false)
                 val countries  =respCountries?.response?: emptyList()
                 _countries.postValue(countries)
                 setNavigate(NavigationModule.COUNTRIES_SCREEN)
 
             }else{
                 Log.d("InitView","No entre al succes")
-
+                _isLoading.postValue(false)
             }
 
         }

@@ -2,14 +2,15 @@ package com.example.footballscore.team
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.footballscore.NavigationModule
+import com.example.footballscore.core.activities.FootballScoreActivity
 import com.example.footballscore.databinding.ActivityContainerBinding
 import com.example.footballscore.team.fragments.CountriesFragment
+import com.example.footballscore.team.fragments.LeagueFragment
 
-class ContainerActivity : AppCompatActivity() {
+class ContainerActivity : FootballScoreActivity() {
 
 
     private val viewModel: FootballScoreViewModel by viewModels()
@@ -33,6 +34,10 @@ class ContainerActivity : AppCompatActivity() {
             if(it != null) navigate(it)
         }
 
+        viewModel.isLoading.observe(this){
+            if(it) startProgressDialog() else stopProgressDialog()
+        }
+
     }
 
     private fun navigate(navigationModule: NavigationModule){
@@ -41,6 +46,10 @@ class ContainerActivity : AppCompatActivity() {
             NavigationModule.COUNTRIES_SCREEN -> {
                 goToFragment(CountriesFragment())
             }
+
+            NavigationModule.LEAGUE_SCREEN ->{
+                goToFragment(LeagueFragment())
+            }
         }
     }
 
@@ -48,6 +57,19 @@ class ContainerActivity : AppCompatActivity() {
         fragmentmanager.beginTransaction()
             .replace(binding.container.id, fragment)
             .commit()
+    }
+
+    override fun onBackPressed() {
+        when(viewModel.navigation.value){
+            NavigationModule.LEAGUE_SCREEN ->{
+                viewModel.setNavigate(NavigationModule.COUNTRIES_SCREEN)
+            }
+
+            NavigationModule.COUNTRIES_SCREEN -> {
+                finish()
+            }
+            else -> {}
+        }
     }
 
 }
