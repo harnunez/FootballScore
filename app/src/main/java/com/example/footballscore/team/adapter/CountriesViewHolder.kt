@@ -20,7 +20,7 @@ class CountriesViewHolder(view:View) : RecyclerView.ViewHolder(view) {
             //Picasso.get().load(img).into(idFlagCountry) --- Solucionar el parseo de imagenes a JPG
 
             idNameCountry.text = country.name
-            itemView.setOnClickListener { listener?.goToLeague() }
+            itemView.setOnClickListener { listener?.goToLeague(country,position) }
 
         }
     }

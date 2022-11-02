@@ -16,18 +16,19 @@
         android:theme="@style/Theme.FootballScore"
         tools:targetApi="31">
         <activity
+            android:name=".players.activities.ContainerPlayersActivity"
+            android:exported="false" />
+        <activity
             android:name=".core.activities.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".team.ContainerActivity"
-            >
-        </activity>
+        <activity android:name=".team.ContainerActivity"></activity>
     </application>
 
 </manifest>

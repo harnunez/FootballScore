@@ -1,4 +1,4 @@
-package com.example.footballscore
+package com.example.footballscore.team.utils
 
 import java.io.Serializable
 

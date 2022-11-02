@@ -11,7 +11,7 @@ class CountriesAdapter(private val listCountries:List<Country>,
     RecyclerView.Adapter<CountriesViewHolder>() {
 
     interface RecyclerCountriesClickListener {
-        fun goToLeague()
+        fun goToLeague(country: Country,position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
