@@ -13,7 +13,6 @@ abstract class FootballScoreActivity : AppCompatActivity(){
 
 
 
-
     fun startProgressDialog() {
         alert = Dialog(this, android.R.style.Theme_Material_Light_NoActionBar_Fullscreen)
         val view = ProgressBarGeneralBinding.inflate(layoutInflater).root

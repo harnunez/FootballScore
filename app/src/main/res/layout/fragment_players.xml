@@ -39,6 +39,7 @@
             android:id="@+id/linear_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_200"
             android:layout_below="@+id/btn_save"
             android:orientation="horizontal">
 
@@ -63,33 +64,27 @@
             android:id="@+id/linear_two"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_200"
             android:layout_below="@+id/linear_one"
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/Nacionality"
+                android:id="@+id/nacionality"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:hint="Nationality" />
 
             <EditText
-                android:id="@+id/country_club"
+                android:id="@+id/position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:hint="Country Club"/>
-
-            <EditText
-                android:id="@+id/trainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="Trainer" />
+                android:hint="Position"/>
 
         </LinearLayout>
 
-        <LinearLayout
+        <!--LinearLayout
             android:id="@+id/linear_three"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,18 +99,18 @@
                 android:hint="Club" />
 
             <EditText
-                android:id="@+id/position"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:hint="Position" />
-
-            <EditText
-                android:id="@+id/foot"
+                android:id="@+id/trainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:hint="Foot" />
+                android:hint="Trainer" />
+
+            <EditText
+                android:id="@+id/country_club"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="Country Club" />
 
         </LinearLayout>
 
@@ -125,6 +120,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear_three"
             android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/foot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Foot" />
+
 
             <EditText
                 android:id="@+id/velocity"
@@ -147,7 +150,7 @@
                 android:layout_weight="2"
                 android:hint="Efficiency" />
 
-        </LinearLayout>
+        </LinearLayout-->
 
     </RelativeLayout>
 

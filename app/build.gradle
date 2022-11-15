@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk 32
@@ -70,4 +71,12 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.3.2"
     // Lifecycles only (without ViewModel or LiveData)
     //implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
+
+    //ROOM DDBB
+    implementation "androidx.room:room-runtime:2.4.3"
+    //Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.4.3"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:2.4.3"
+
 }
