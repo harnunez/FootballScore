@@ -17,8 +17,8 @@ interface PlayerDao {
     suspend fun getPlayerById(idPlayer:Int):Player
 
     @Delete
-    fun deletePlayer(player: Player)
+    suspend fun deletePlayer(player: Player):Int
 
     @Update
-    fun updatePlayer(player: Player)
+    suspend fun updatePlayer(player: Player):Int
 }

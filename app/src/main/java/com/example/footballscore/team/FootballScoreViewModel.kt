@@ -53,7 +53,6 @@ class FootballScoreViewModel : ViewModel(){
                 .getCountries()
 
             val respCountries: ResponseCountries? = call.body()
-
             if(call.isSuccessful){
                 Log.d("InitView","Entre al succes")
                 _isLoading.postValue(false)

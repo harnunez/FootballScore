@@ -9,19 +9,22 @@ import com.example.footballscore.databinding.ActivityContainerPlayersBinding
 import com.example.footballscore.players.NavigationPlayers
 import com.example.footballscore.players.PlayersViewModel
 import com.example.footballscore.players.fragments.PlayersFragment
+import com.example.footballscore.players.utlis.PermissionsManager
 
 class ContainerPlayersActivity : AppCompatActivity() {
 
     private val viewModel: PlayersViewModel by viewModels()
     private val fragmentmanager: FragmentManager by lazy { supportFragmentManager }
     private lateinit var binding: ActivityContainerPlayersBinding
-
+    private var permission:PermissionsManager? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityContainerPlayersBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        permission = PermissionsManager(this)
 
         viewModel.init()
         setupObserver()
@@ -35,7 +38,6 @@ class ContainerPlayersActivity : AppCompatActivity() {
 
 
     private fun navigate(navigationModule: NavigationPlayers){
-
         when(navigationModule){
             NavigationPlayers.INSERT_PLAYER -> {
                 goToFragment(PlayersFragment())

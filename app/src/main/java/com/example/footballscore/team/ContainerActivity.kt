@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.example.footballscore.team.utils.NavigationModule
 import com.example.footballscore.core.activities.FootballScoreActivity
 import com.example.footballscore.databinding.ActivityContainerBinding
 import com.example.footballscore.team.fragments.CountriesFragment
 import com.example.footballscore.team.fragments.LeagueFragment
+import com.example.footballscore.team.utils.NavigationModule
 
 class ContainerActivity : FootballScoreActivity() {
 
