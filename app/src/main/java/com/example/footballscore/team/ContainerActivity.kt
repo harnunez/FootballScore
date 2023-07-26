@@ -13,7 +13,11 @@ import com.example.footballscore.team.utils.NavigationModule
 class ContainerActivity : FootballScoreActivity() {
 
 
-    private val viewModel: FootballScoreViewModel by viewModels()
+    //private val viewModel: FootballScoreViewModel by viewModels()
+    private val viewModel: FootballScoreViewModel by viewModels{
+        Injector.provideFootballScoreViewModelfactory()
+    }
+
     private val fragmentmanager: FragmentManager by lazy { supportFragmentManager }
     private lateinit var binding: ActivityContainerBinding
 

@@ -9,14 +9,16 @@ import com.example.footballscore.core.FootballScoreServiceCall
 import com.example.footballscore.team.model.Country
 import com.example.footballscore.team.model.ResponseCountries
 import com.example.footballscore.team.model.ResponseSeason
+import com.example.footballscore.team.repository.FootballSoccerRepository
 import com.example.footballscore.team.services.APIFootballServices
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class FootballScoreViewModel : ViewModel(){
-
+class FootballScoreViewModel internal constructor(
+    private val footballSoccerRepo: FootballSoccerRepository
+): ViewModel(){
 
     private val _countries = MutableLiveData<List<Country>>()
     val countries : LiveData<List<Country>> = _countries
