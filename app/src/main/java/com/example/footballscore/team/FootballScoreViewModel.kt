@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class FootballScoreViewModel internal constructor(
-    private val footballSoccerRepo: FootballSoccerRepository
+    private val repository: FootballSoccerRepository
 ): ViewModel(){
 
     private val _countries = MutableLiveData<List<Country>>()
