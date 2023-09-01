@@ -12,8 +12,6 @@ import com.example.footballscore.team.utils.NavigationModule
 
 class ContainerActivity : FootballScoreActivity() {
 
-
-    //private val viewModel: FootballScoreViewModel by viewModels()
     private val viewModel: FootballScoreViewModel by viewModels{
         Injector.provideFootballScoreViewModelfactory()
     }

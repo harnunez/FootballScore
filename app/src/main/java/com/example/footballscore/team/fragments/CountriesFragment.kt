@@ -11,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import ar.com.galicia.core.services.ServiceResult
 import com.example.footballscore.team.utils.NavigationModule
 import com.example.footballscore.databinding.FragmentCountriesBinding
 import com.example.footballscore.team.adapter.CountriesAdapter
@@ -36,13 +37,33 @@ class CountriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("onCreateFragment","CountriesFragment")
         setupviews()
         setupObserver()
     }
 
     private fun setupObserver(){
 
-        viewModel.countries.observe(viewLifecycleOwner){ it.let {  initRecycler(it) } }
+        viewModel.countries.observe(viewLifecycleOwner){
+            it.let {
+                //initRecycler(it)
+                Log.d("SE entra","IN")
+                when (it.status) {
+                    ServiceResult.Status.SUCCESS -> {
+                        Log.d("SERVICERESP","SUCCESS")
+                        println(it.data)
+                    }
+                    ServiceResult.Status.ERROR -> {
+                        Log.d("SERVICERESP","ERROR")
+
+                    }
+                    ServiceResult.Status.LOADING -> {
+                        Log.d("SERVICERESP","LOADING")
+                    }
+                }
+            }
+        }
+
         viewModel.seasons.observe(viewLifecycleOwner){it.let { fillSpinner(it) }}
     }
 

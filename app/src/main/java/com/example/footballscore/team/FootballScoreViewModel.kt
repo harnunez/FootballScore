@@ -4,13 +4,14 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.footballscore.team.utils.NavigationModule
+import ar.com.galicia.core.services.ServiceResult
 import com.example.footballscore.core.FootballScoreServiceCall
 import com.example.footballscore.team.model.Country
 import com.example.footballscore.team.model.ResponseCountries
 import com.example.footballscore.team.model.ResponseSeason
 import com.example.footballscore.team.repository.FootballSoccerRepository
 import com.example.footballscore.team.services.APIFootballServices
+import com.example.footballscore.team.utils.NavigationModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,9 +20,6 @@ import retrofit2.Response
 class FootballScoreViewModel internal constructor(
     private val repository: FootballSoccerRepository
 ): ViewModel(){
-
-    private val _countries = MutableLiveData<List<Country>>()
-    val countries : LiveData<List<Country>> = _countries
 
     private val _seasons = MutableLiveData<List<Int>>()
     val seasons: LiveData<List<Int>> = _seasons
@@ -39,12 +37,19 @@ class FootballScoreViewModel internal constructor(
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading
 
+
+    val countries : LiveData<ServiceResult<ResponseCountries>> = repository.searchCountries()
+
+
     fun init (){
-        if(countries.value.isNullOrEmpty()){
-            searchCountries()
-        }
+        _isLoading.postValue(true)
+        setNavigate(NavigationModule.COUNTRIES_SCREEN)
+        _isLoading.postValue(false)
     }
 
+    /**
+     * Metodo para buscar paises API
+     * Se puede usar sin repo **/
     fun searchCountries(){
 
         _isLoading.postValue(true)
@@ -59,7 +64,7 @@ class FootballScoreViewModel internal constructor(
                 Log.d("InitView","Entre al succes")
                 _isLoading.postValue(false)
                 val countries  =respCountries?.response?: emptyList()
-                _countries.postValue(countries)
+                //_countries.postValue(countries)
                 setNavigate(NavigationModule.COUNTRIES_SCREEN)
 
             }else{
